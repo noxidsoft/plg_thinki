@@ -5,37 +5,33 @@
 # Homepage   : www.noxidsoft.com		   	   	   	   	   	   		 #
 # Author     : Noel Dixon    		   	   	   	   	   	   	   	     #
 # Email      : noel.dixon@noxidsoft.com 	   	   	   	   	   	   	 #
-# Version    : 1.5                        	   	    	   	   	   	 #
+# Version    : 1.6                        	   	    	   	   	   	 #
 # License    : http://www.gnu.org/copyleft/gpl.html GNU/GPL          #
 ######################################################################
 
 // no direct access
-defined( '_JEXEC' ) or die( 'Restricted access' );
+defined( '_JEXEC' ) or die;
 
 jimport( 'joomla.plugin.plugin');
 
-class plgSystemThinki extends JPlugin
-{
-	function plgSystemThinki(&$subject, $config)
-	{
+class plgSystemThinki extends JPlugin {
+	function plgSystemThinki(&$subject, $config) {
 		parent::__construct($subject, $config);
 		
     $this->_plugin = JPluginHelper::getPlugin( 'system', 'thinki' );
-    $this->_params = new JParameter( $this->_plugin->params );
 	}
 	
-	function onAfterRender()
-	{
+	function onAfterRender() {
 		global $mainframe;
 		
 		$web_property_id = $this->params->get('web_property_id', '');
 		
-		if($web_property_id == '' || $mainframe->isAdmin() || strpos($_SERVER["PHP_SELF"], "index.php") === false)
+		if($web_property_id == '' || strpos($_SERVER["PHP_SELF"], "index.php") === false)
 		{
 			return;
 		}
 
-    $buffer = JResponse::getBody();
+		$buffer = JResponse::getBody();
 
 		$pos = strrpos($buffer, "</head>");
 
@@ -62,4 +58,3 @@ class plgSystemThinki extends JPlugin
 		return true;
 	}
 }
-?>
