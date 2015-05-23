@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="plugin" group="system">
+	<name>System - Thinki15 Google Analytics</name>
+	<author>Noxidsoft - Noel M Dixon</author>
+	<creationDate>May 2010</creationDate>
+	<copyright>Copyright (C) 2010-2011 Noxidsoft. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>noel.dixon@noxidsoft.com</authorEmail>
+	<authorUrl>http://www.noxidsoft.com</authorUrl>
+	<version>1.5.1</version>
+	<description>This Plugin puts the New Asynchronous Tracking Code from Google Analytics into your site.</description>
+	<files>
+		<filename plugin="thinki15">thinki15.php</filename>
+		<filename>index.html</filename>
+	</files>
+	<params>
+		<param 
+			name="web_property_id" 
+			type="text" default="" 
+			label="Web Property ID" 
+			description="This is the Web Property ID provided by Google. The format is: UA-XXXXXXX-X" 
+		/>
+	</params>
+</install>
